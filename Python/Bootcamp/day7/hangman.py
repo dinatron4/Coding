@@ -12,6 +12,7 @@ lives = 6
 guessed_letters =[]
 correct_letters = []
 chosen_word = random.choice(hangman_words.one_piece_characters).lower()
+clear_terminal()
 # print(chosen_word)
 
 # Creating the word "silhouette"
@@ -21,6 +22,7 @@ for letter in chosen_word:
     else:
         placeholder += "_"
 
+print("Guess the One Piece character:")
 print(hangman_art.stages[lives])
 print(placeholder)
 
@@ -30,7 +32,7 @@ while display != chosen_word and lives != 0:
     guess = input("Guess one letter?\n").lower()
     clear_terminal()
     if guess in guessed_letters:
-        print("You have tried this letter before. Try a new one!")
+        print(f"You have tried {guess.upper()} before. Try a new one!")
     else:
         guessed_letters.append(guess)
         display = ""
@@ -48,10 +50,13 @@ while display != chosen_word and lives != 0:
 
         if guess not in chosen_word: # Guessed wrong, lose one life
             lives -= 1
-    
+            print(f"The letter {guess} is not in this word.")
+
+    print("Guess the One Piece character:")
     print(hangman_art.stages[lives])
     print(f"Letters guessed: {", ".join(guessed_letters)}")
     print(display)
+    print(f"****************************{lives} LIVES LEFT****************************")
 
 if lives == 0:
     print(f"\nYou lose! The answer was {chosen_word.capitalize()}")

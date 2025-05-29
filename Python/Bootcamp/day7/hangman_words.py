@@ -1,6 +1,6 @@
 one_piece_characters = [
     # Straw Hat Pirates
-    "Monkey D. Luffy", "Roronoa Zoro", "Nami", "Usopp", "Sanji",
+    "Monkey D Luffy", "Roronoa Zoro", "Nami", "Usopp", "Sanji",
     "Tony Tony Chopper", "Nico Robin", "Franky", "Brook", "Jinbe",
 
     # East Blue characters
@@ -8,8 +8,8 @@ one_piece_characters = [
     "Smoker", "Tashigi",
 
     # Baroque Works / Alabasta
-    "Nefertari Vivi", "Crocodile", "Nico Robin (Miss All Sunday)", "Daz Bones",
-    "Miss Doublefinger", "Bon Clay", "Mr. 3", "Miss Goldenweek", "King Cobra",
+    "Nefertari Vivi", "Crocodile", "Daz Bones",
+    "Miss Doublefinger", "Bon Clay", "Mr three", "Miss Goldenweek", "King Cobra",
     "Koza", "Pell", "Chaka",
 
     # Skypiea
@@ -20,13 +20,13 @@ one_piece_characters = [
     "Franky", "Tom", "Cocoro",
 
     # Thriller Bark
-    "Gecko Moria", "Perona", "Dr. Hogback", "Absalom", "Oars",
+    "Gecko Moria", "Perona", "Dr Hogback", "Absalom", "Oars",
 
     # Sabaody / Marineford
     "Silvers Rayleigh", "Boa Hancock", "Bartholomew Kuma", "Jewelry Bonney",
-    "Trafalgar D. Water Law", "Eustass Kid", "Basil Hawkins", "X Drake", "Scratchmen Apoo",
-    "Capone Bege", "Admiral Kizaru", "Sentomaru", "PX-1", "Whitebeard", "Edward Newgate",
-    "Marco", "Jozu", "Vista", "Ace", "Marshall D. Teach",
+    "Trafalgar D Water Law", "Eustass Kid", "Basil Hawkins", "X Drake", "Scratchmen Apoo",
+    "Capone Bege", "Admiral Kizaru", "Sentomaru", "Whitebeard", "Edward Newgate",
+    "Marco", "Jozu", "Vista", "Ace", "Marshall D Teach",
     "Sengoku", "Garp", "Akainu", "Aokiji", "Shirohige Pirates", "Thatch",
 
     # Post-War / Return to Sabaody
@@ -41,12 +41,12 @@ one_piece_characters = [
 
     # Dressrosa
     "Donquixote Doflamingo", "Trebol", "Diamante", "Pica", "Sugar", "Bellamy",
-    "Rebecca", "Kyros", "Scarlet", "Viola", "Riku Doldo III", "Leo", "Bartolomeo",
+    "Rebecca", "Kyros", "Scarlet", "Viola", "King Riku", "Leo", "Bartolomeo",
     "Cavendish", "Sai", "Hajrudin", "Ideo", "Baby Five", "Gladius", "Lao G", "Senor Pink",
     "Fujitora", "Sabo", "Koala", "Hack", "Jesus Burgess",
 
     # Zou
-    "Inuarashi", "Nekomamushi", "Carrot", "Pedro", "Wanda", "Raizo",
+    "Dogstorm", "Cat Viper", "Carrot", "Pedro", "Wanda", "Raizo",
 
     # Whole Cake Island
     "Big Mom", "Charlotte Linlin", "Charlotte Katakuri", "Charlotte Perospero",
@@ -56,16 +56,16 @@ one_piece_characters = [
     "Opera", "Morgans",
 
     # Reverie prep (brief mentions)
-    "Nefertari Cobra", "Nefertari Vivi", "Dalton", "Dr. Kureha", "Wapol",
+    "Nefertari Cobra", "Nefertari Vivi", "Dalton", "Dr Kureha", "Wapol",
     "King Riku", "Rebecca ", "Stelly",
 
     # Other important mentions
-    "Gol D. Roger", "Portgas D. Rouge", "Monkey D. Dragon", "Sabo",
+    "Gol D Roger", "Portgas D Rouge", "Monkey D Dragon", "Sabo",
     "Imu", "Kaido", "Shanks", "Blackbeard"
 ]
 
 straw_hat_pirates = [
-    "Monkey D. Luffy", "Roronoa Zoro", "Nami", "Usopp", "Sanji",
+    "Monkey D Luffy", "Roronoa Zoro", "Nami", "Usopp", "Sanji",
     "Tony Tony Chopper", "Nico Robin", "Franky", "Brook", "Jinbe"
 ]
 
@@ -74,8 +74,8 @@ villains = [
     "Buggy", "Captain Kuro", "Don Krieg", "Arlong",
 
     # Baroque Works
-    "Crocodile", "Mr. 1 (Daz Bones)", "Miss Doublefinger", "Mr. 2 Bon Clay",
-    "Mr. 3", "Miss Goldenweek",
+    "Crocodile", "Mr 1 (Daz Bones)", "Miss Doublefinger", "Mr 2 Bon Clay",
+    "Mr 3", "Miss Goldenweek",
 
     # Skypiea
     "Enel",
@@ -84,10 +84,10 @@ villains = [
     "Rob Lucci", "Kaku", "Kalifa", "Blueno", "Spandam",
 
     # Thriller Bark
-    "Gecko Moria", "Perona", "Dr. Hogback", "Absalom", "Oars",
+    "Gecko Moria", "Perona", "Dr Hogback", "Absalom", "Oars",
 
     # Marineford Arc
-    "Blackbeard (Marshall D. Teach)", "Akainu",
+    "Blackbeard (Marshall D Teach)", "Akainu",
 
     # Punk Hazard
     "Caesar Clown", "Monet", "Vergo",
@@ -105,7 +105,7 @@ villains = [
 
 allies_and_supporting = [
     "Shanks", "Silvers Rayleigh", "Koby", "Helmeppo", "Boa Hancock",
-    "Trafalgar D. Water Law", "Jinbe", "Sabo", "Koala", "Ivankov",
+    "Trafalgar D Water Law", "Jinbe", "Sabo", "Koala", "Ivankov",
     "Inazuma", "Bartolomeo", "Cavendish", "Sai", "Hajrudin", "Ideo",
     "Carrot", "Pedro", "Wanda", "Raizo", "Pell", "Chaka", "Gan Fall",
     "Conis", "Pagaya", "Iceburg", "Paulie", "Cocoro", "Tom",
@@ -115,7 +115,7 @@ allies_and_supporting = [
 royalty_and_nobles = [
     "Nefertari Vivi", "King Cobra", "Scarlet", "Kyros", "Viola",
     "Riku Doldo III", "Rebecca", "Neptune", "Shirahoshi",
-    "Fukaboshi", "Dalton", "Dr. Kureha", "Wapol", "Stelly"
+    "Fukaboshi", "Dalton", "Dr Kureha", "Wapol", "Stelly"
 ]
 
 scientists = [
@@ -128,6 +128,6 @@ marines_and_wg = [
 ]
 
 supernovas = [
-    "Monkey D. Luffy", "Roronoa Zoro", "Trafalgar D. Water Law", "Eustass Kid",
+    "Monkey D Luffy", "Roronoa Zoro", "Trafalgar D Water Law", "Eustass Kid",
     "Basil Hawkins", "X Drake", "Jewelry Bonney", "Scratchmen Apoo", "Capone Bege", "Killer", "Urouge"
 ]
