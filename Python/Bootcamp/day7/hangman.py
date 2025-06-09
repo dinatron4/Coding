@@ -11,7 +11,9 @@ display = ""
 lives = 6
 guessed_letters =[]
 correct_letters = []
-chosen_word = random.choice(hangman_words.one_piece_characters).lower()
+# chosen_word = random.choice(hangman_words.one_piece_characters).lower()
+name_character = random.choice(list(hangman_words.one_piece_character_hints.keys()))
+chosen_word = name_character.lower()
 clear_terminal()
 # print(chosen_word)
 
@@ -50,12 +52,19 @@ while display != chosen_word and lives != 0:
 
         if guess not in chosen_word: # Guessed wrong, lose one life
             lives -= 1
+            hints = hangman_words.one_piece_character_hints[name_character]
             print(f"The letter {guess} is not in this word.")
 
     print("Guess the One Piece character:")
     print(hangman_art.stages[lives])
     print(f"Letters guessed: {", ".join(guessed_letters)}")
-    print(display)
+    if lives <= 3:
+        print(f"\n----- First apparition: {hints["first_arc"]} -----")
+    if lives <= 2:
+        print(f"----- Devil Fruit: {hints["devil_fruit"]} -----")
+    if lives <= 1:
+        print(f"----- Affiliation {hints["affiliation"]} -----")
+    print("\n" + display)
     print(f"****************************{lives} LIVES LEFT****************************")
 
 if lives == 0:
