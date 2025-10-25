@@ -1,4 +1,9 @@
 def calculator(first, second, op):
+    """Take the numbers inputed by the user and do a math operation
+    +: add
+    -: substract
+    *: multiply
+    /: divide"""
     match op:
         case "+":
             result = first + second
