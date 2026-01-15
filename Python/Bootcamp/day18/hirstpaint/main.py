@@ -28,7 +28,7 @@ tim.teleport(x,y)
 tim.penup()
 tim.hideturtle()
 screen.colormode(255)
-# tim.speed(0)
+tim.speed(0)
 # tim.left(90)
 
 for _ in range (10):
