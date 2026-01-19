@@ -11,28 +11,59 @@ def display_vs():
 
 def random_celebrity(famous_used):
     """Return a position for a famous that was not used yet in the game"""
-    famous_pos = randint(0, SIZE_OF_DATA)
+    famous_pos = randint(0, SIZE_OF_DATA-1)
     if famous_pos in famous_used:
-        random_celebrity(famous_used)
+        while famous_pos in famous_used:
+            famous_pos = randint(0, SIZE_OF_DATA-1)
     famous_used.append(famous_pos)
-    return famous_pos
+
+def check_answer(user_letter, score, celebrities):
+    if user_letter == "A":
+        if data[celebrities[0]]["follower_count"] >= data[celebrities[-1]]["follower_count"]:
+            #If correct, increase the score and play again.
+            score += 1
+            display_logo()
+            print(f"You are right! Current score: {score}")
+            return True, score, celebrities
+        else:
+            return False, score, celebrities
+    else:
+        if data[celebrities[-1]]["follower_count"] >= data[celebrities[0]]["follower_count"]:
+            #If correct, increase the score and play again. Making their celebrity the first one
+            score += 1
+            display_logo()
+            print(f"You are right! Current score: {score}")
+            celebrities[0], celebrities[-1] = celebrities[-1], celebrities[0]
+            return True, score, celebrities
+        else:
+            return False, score, celebrities
 
 SIZE_OF_DATA = len(data)
 famous_selected = []
-pos = random_celebrity(famous_selected) #First famous used in the game
+score = 0
+playing_game = True
+random_celebrity(famous_selected) #First famous used in the game
+display_logo()
 
-while (True):
-    display_logo()
-    print(f"\nCompare A: {data[pos]["name"]} {data[pos]["second_name"]}, a {data[pos]["description"].title()}, from {data[pos]["country"].title()}")
+while (playing_game):
+    print(f"Famous list: {famous_selected}")
+    print(f"\nCompare A: {data[famous_selected[0]]["name"]} {data[famous_selected[0]]["second_name"]}, a {data[famous_selected[0]]["description"].title()}, from {data[famous_selected[0]]["country"].title()}")
+    # print(data[famous_selected[0]]["follower_count"])
     display_vs()
-    pos = random_celebrity(famous_selected)
-    print(f"Compare B: {data[pos]["name"]} {data[pos]["second_name"]}, a {data[pos]["description"].title()}, from {data[pos]["country"].title()}")
+    random_celebrity(famous_selected)
+    print(f"Compare B: {data[famous_selected[-1]]["name"]} {data[famous_selected[-1]]["second_name"]}, a {data[famous_selected[-1]]["description"].title()}, from {data[famous_selected[-1]]["country"].title()}")
+    # print(data[famous_selected[-1]]["follower_count"])
     #Choose one of the two famous
-    answer = input("Who has more followers? Type 'A' or 'B': ").upper()
-
+    answer = input("Who has more followers on Instagram? Type 'A' or 'B': ").upper()
+    print("\n"*100)
     #Compare to see if the answer is right or wrong
-    # if data[pos]["follower_count"] > data[pos]["follower_count"]:
+    playing_game, score, famous_selected = check_answer(answer, score, famous_selected)
+    if score == 59:
+        playing_game = False
 
-    #If correct, increase the score and play again. Making their celebrity the first one
-
-    #If wrong, end game and show score
+#If wrong, end game and show score
+display_logo()
+if score == 59:
+    print("You have beaten the game. Congratulations!")
+else:
+    print(f"Sorry, that's wrong. Final score: {score}")
