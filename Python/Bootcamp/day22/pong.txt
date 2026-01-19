@@ -1,0 +1,3 @@
+Two instances of players (left and right) - Creating an object for each of them
+Score - writing for each of them
+Ball 
