@@ -1,35 +1,25 @@
 from turtle import Turtle
 
-MOVE_DISTANCE = 10
-STEP = 15
+STEP = 20
 UP = 90
 DOWN = 270
 
-class Racket:
+class Racket(Turtle):
     
-    def __init__(self, start_position):
-        paddle = Turtle(shape="square")
-        paddle.color("white")
-        paddle.penup()
-        paddle.shapesize(stretch_wid=5, stretch_len=1)
-        paddle.goto(start_position)
+    def __init__(self,start_position):
+        super().__init__()
+        self.shape("square")
+        self.color("white")
+        self.penup()
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(start_position)
 
     def move_up(self):
-        self.head.seth(UP)
-        size = len(self.segments) - 1
-        for seg_num in range (size, 0, -1):
-            new_x = self.segments[seg_num - 1].xcor()
-            new_y = self.segments[seg_num - 1].ycor()
-            self.segments[seg_num].goto(new_x, new_y)
-        self.head.forward(STEP)
+        x, y = self.position()
+        if y <= 230:
+            self.goto(x, y + STEP)
 
     def move_down(self):
-        self.segments[-1].seth(DOWN)
-        size = len(self.segments) - 1
-        for seg_num in range (0, size, 1):
-            new_x = self.segments[seg_num + 1].xcor()
-            new_y = self.segments[seg_num + 1].ycor()
-            self.segments[seg_num].goto(new_x, new_y)
-        self.segments[-1].forward(STEP)
-        pass
-    
+        x, y = self.position()
+        if y >= -230:
+            self.goto(x, y - STEP)            
