@@ -1,20 +1,12 @@
+PLACEHOLDER = "[name]"
 
+with open("./Python/Bootcamp/day24/Names/invited_names.txt", "r") as name_file:
+    names = name_file.readlines()
 
-with open("Python/Bootcamp/day24/Input/Letters/starting_letter.txt", "r") as file:
-    letter_context = file.readlines()
-
-with open("Python/Bootcamp/day24/Names/invited_names.txt", "r") as file:
-    names = file.readlines()
-
-print(names)
-
-for name in names:
-    aux = []
-    aux = letter_context.copy()
-    name = name.replace("\n", "")
-    # print(name)
-    # print(type(name))
-    aux[0] = aux[0].replace("[name]", name)
-    with open("Python/Bootcamp/day24/Output/ReadyToSend/" + name + ".txt", "w+") as file:
-        # print(aux)
-        file.writelines(aux)
+with open("./Python/Bootcamp/day24/Input/Letters/starting_letter.txt", "r") as letter_file:
+    letter_content = letter_file.read()
+    for name in names:
+        stripped_name = name.strip()
+        new_letter = letter_content.replace(PLACEHOLDER, stripped_name)
+        with open(f"./Python/Bootcamp/day24/Output/ReadyToSend/{stripped_name}.txt", "w+") as complete_letter:
+            complete_letter.write(new_letter)
