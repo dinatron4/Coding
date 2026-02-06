@@ -37,9 +37,10 @@ while game_is_on:
         guessed_states.append(answer_state)
     elif answer_state == "Quit":
         game_is_on = False
-        for state in guessed_states:
-            states.remove(state)
-        new_data = pandas.DataFrame(states)
+        missing_states = [state for state in states if state not in guessed_states]
+        # for state in guessed_states:
+        #     states.remove(state)
+        new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("./Python/Bootcamp/day25/USquiz/states_to_learn.csv")
             
     elif answer_state in guessed_states:
