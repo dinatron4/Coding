@@ -21,6 +21,7 @@ x_cord = data["x"].to_list()
 y_cord = data["y"].to_list()
 states_dict = {state: (x, y) for (state, x, y) in zip(states, x_cord, y_cord)}
 # print(our_dict)
+# print(states)
 
 board_states = BoardStates()
 guessed_states = []
@@ -36,6 +37,11 @@ while game_is_on:
         guessed_states.append(answer_state)
     elif answer_state == "Quit":
         game_is_on = False
+        for state in guessed_states:
+            states.remove(state)
+        new_data = pandas.DataFrame(states)
+        new_data.to_csv("./Python/Bootcamp/day25/USquiz/states_to_learn.csv")
+            
     elif answer_state in guessed_states:
         print("You already guessed this one")
     else:
@@ -45,4 +51,4 @@ while game_is_on:
         game_is_on = False
     time.sleep(1)
 
-screen.exitonclick()
+# screen.exitonclick()

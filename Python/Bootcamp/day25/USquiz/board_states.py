@@ -1,6 +1,6 @@
 from turtle import Turtle
 
-FONT = ("Courier", 8, "normal")
+FONT = ("Courier", 6, "normal")
 
 class BoardStates(Turtle):
     def __init__(self, shape = "classic", undobuffersize = 1000, visible = False):
