@@ -30,11 +30,8 @@ alphabet_df = pandas.read_csv("Python\Bootcamp\day26\\NATO-alphabet-start\\NATO-
 alphabet_dict = {row.letter:row.code for (index, row) in alphabet_df.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-user_input = input("Enter a word: ")
-character_list = []
-
-for letter in user_input:
-    character_list.append(alphabet_dict[letter.upper()])
+user_input = input("Enter a word: ").upper()
+character_list = [alphabet_dict[letter] for letter in user_input]
 
 print(character_list)
 
