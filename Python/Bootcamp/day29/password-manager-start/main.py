@@ -1,5 +1,5 @@
 from tkinter import *
-import pandas
+from tkinter import messagebox
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Arial"
@@ -7,11 +7,23 @@ FONT_NAME = "Arial"
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_details():
-    details = [website_entry.get(), email_entry.get(), password_entry.get()]
-    details = pandas.DataFrame(details)
-    details.to_csv("./Python/Bootcamp/day29/password-manager-start/password_manager.csv")
-    print(details)
-    pass
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
+
+    if len(website) == 0 or len(password) == 0 or len(email) == 0:
+        messagebox.showerror(title="Missing fields", message="Make sure all the fields are populated.")
+    else:
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered:\n"
+                                    f"Email: {email}\nPassword: {password}\nIs it ok to save?")
+        
+        if is_ok:
+            with open("./Python/Bootcamp/day29/password-manager-start/password_manager.csv","a") as file:
+                file.write(f"{website} | {email} | {password}\n")
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
+            website_entry.focus()
+    
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
