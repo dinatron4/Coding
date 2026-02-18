@@ -1,9 +1,31 @@
 from tkinter import *
 from tkinter import messagebox
+from  random import randint, choice, shuffle
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Arial"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def password_generator():
+    """Clean the password entry, and add a new  password"""
+
+    password_entry.delete(0,END)
+
+    abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    for i in range(len(abc)):
+        abc.append(abc[i].upper())
+    symbols = ["!","@","#","$","%","^","&","*","(",")","<",">",";","?","/","\\"]
+    numbers = ["0","1","2","3","4","5","6","7","8","9"]
+
+    # list_comp = [new_item for item in list]
+    _letters = [choice(abc) for _ in range(randint(6,8))]
+    _symbols = [choice(symbols) for _ in range(randint(2,4))]
+    _numbers = [choice(numbers) for _ in range(randint(2,4))]
+
+    password_list = _letters + _symbols + _numbers
+    shuffle(password_list)
+    password = "".join(password_list)
+
+    password_entry.insert(END, string=password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_details():
@@ -61,7 +83,7 @@ password_entry = Entry(width=33)
 password_entry.grid(column=1, row=3,sticky="w")
 
 #Buttons
-generate_password = Button(text="Generate Password")
+generate_password = Button(text="Generate Password", command=password_generator)
 generate_password.grid(column=2, row=3)
 add_button = Button(text="Add", width=44, command=save_details)
 add_button.grid(column=1, row=4, columnspan=2)
