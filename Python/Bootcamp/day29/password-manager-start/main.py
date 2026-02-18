@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
-from  random import randint, choice, shuffle
+from random import randint, choice, shuffle
+import pyperclip
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Arial"
@@ -24,8 +25,8 @@ def password_generator():
     password_list = _letters + _symbols + _numbers
     shuffle(password_list)
     password = "".join(password_list)
-
-    password_entry.insert(END, string=password)
+    pyperclip.copy(password)
+    password_entry.insert(0, string=password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_details():
