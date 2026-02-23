@@ -70,13 +70,12 @@ def search():
     else:
         try:
             with open("./Python/Bootcamp/day30/JsonPassword/password_manager.json","r") as file:
-                #Reading old data
                 data = json.load(file)
-                email = data[website]["email"]
-                password = data[website]["password"]
         except (FileNotFoundError,KeyError):
             messagebox.showwarning(title="Missing Website", message="Website not registered.")
         else:
+            email = data[website]["email"]
+            password = data[website]["password"]
             messagebox.showinfo(title=f"{website}", message=f"Email: {email}\nPassword: {password}")
     
 # ---------------------------- UI SETUP ------------------------------- #
