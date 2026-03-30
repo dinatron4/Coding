@@ -1,13 +1,15 @@
 from tkinter import *
 from random import choice
 import pandas
+import os
+BASE_DIR = os.path.dirname(__file__)
 #-------------- CONSTANTS --------------------------#
 BACKGROUND_COLOR = "#B1DDC6"
 FONT_NAME = "Arial"
 current_card = {}
 
 #---------------------------------------------------#
-data = pandas.read_csv("Python\Bootcamp\day31\data\italian_words.csv")
+data = pandas.read_csv(os.path.join(BASE_DIR, "data", "italian_words.csv"))
 to_learn = data.to_dict(orient="records")
 
 #--------------- FUNCTIONS -------------------------#
@@ -36,8 +38,8 @@ flip_timer = window.after(3000, func=flip_card)
 canvas = Canvas(width=800, height=540, background=BACKGROUND_COLOR, highlightthickness=0)
 
 #Defining the images for the flash cards
-learning_lg_bg = PhotoImage(file="./Python/Bootcamp/day31/images/card_front.png")
-main_lg_bg = PhotoImage(file="./Python/Bootcamp/day31/images/card_back.png")
+learning_lg_bg = PhotoImage(file=os.path.join(BASE_DIR, "images", "card_front.png"))
+main_lg_bg = PhotoImage(file=os.path.join(BASE_DIR, "images", "card_back.png"))
 
 card_image = canvas.create_image(400,270,image=learning_lg_bg)
 card_title = canvas.create_text(400,150, text="Italian",font=(FONT_NAME, 30, "italic"))
@@ -45,11 +47,11 @@ card_word = canvas.create_text(400,270, text="word",font=(FONT_NAME, 55, "bold")
 canvas.grid(row=0, column=0, columnspan=2)
 
 #Buttons
-wrong_image = PhotoImage(file="./Python/Bootcamp/day31/images/wrong.png")
+wrong_image = PhotoImage(file=os.path.join(BASE_DIR, "images", "wrong.png"))
 wrong_button = Button(image=wrong_image, highlightthickness=0, command=next_card)
 wrong_button.grid(row=1,column=0)
 
-right_image = PhotoImage(file="./Python/Bootcamp/day31/images/right.png")
+right_image = PhotoImage(file=os.path.join(BASE_DIR, "images", "right.png"))
 right_button = Button(image=right_image, highlightthickness=0, command=next_card)
 right_button.grid(row=1,column=1)
 

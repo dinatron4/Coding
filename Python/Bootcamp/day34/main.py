@@ -1,5 +1,7 @@
 from tkinter import *
 import requests
+import os
+BASE_DIR = os.path.dirname(__file__)
 
 
 # def get_quote():
@@ -28,11 +30,11 @@ window.config(padx=50, pady=50)
 
 
 #Buttons
-true_image = PhotoImage(file="Python\\Bootcamp\\day34\\quizzler-app-start\\images\\true.png")
+true_image = PhotoImage(file=os.path.join(BASE_DIR, "quizzler-app-start", "images", "true.png"))
 true_button = Button(image=true_image, highlightthickness=0, command=right)
 true_button.grid(row=1, column=0)
 
-false_image = PhotoImage(file="Python\\Bootcamp\\day34\\quizzler-app-start\\images\\false.png")
+false_image = PhotoImage(file=os.path.join(BASE_DIR, "quizzler-app-start", "images", "false.png"))
 false_button = Button(image=false_image, highlightthickness=0, command=right)
 false_button.grid(row=1, column=1)
 

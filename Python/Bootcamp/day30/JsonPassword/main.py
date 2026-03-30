@@ -3,6 +3,8 @@ from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
 import json
+import os
+BASE_DIR = os.path.dirname(__file__)
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Arial"
@@ -45,16 +47,16 @@ def save_details():
         messagebox.showerror(title="Missing fields", message="Make sure all the fields are populated.")
     else:
         try:
-            with open("./Python/Bootcamp/day30/JsonPassword/password_manager.json","r") as file:
+            with open(os.path.join(BASE_DIR, "password_manager.json"), "r") as file:
                 #Reading old data
                 data = json.load(file)
         except FileNotFoundError:
-            with open("./Python/Bootcamp/day30/JsonPassword/password_manager.json","w") as file:
+            with open(os.path.join(BASE_DIR, "password_manager.json"), "w") as file:
                 json.dump(new_data, file, indent=2)
         else:
             #Updating old data with new data
             data.update(new_data)
-            with open("./Python/Bootcamp/day30/JsonPassword/password_manager.json","w") as file:
+            with open(os.path.join(BASE_DIR, "password_manager.json"), "w") as file:
                 #Saving updated data
                 json.dump(data,file, indent=2)            
         finally:
@@ -69,7 +71,7 @@ def search():
         messagebox.showerror(title="Missing Website", message="Please, enter a website.")
     else:
         try:
-            with open("./Python/Bootcamp/day30/JsonPassword/password_manager.json","r") as file:
+            with open(os.path.join(BASE_DIR, "password_manager.json"), "r") as file:
                 data = json.load(file)
         except (FileNotFoundError,KeyError):
             messagebox.showwarning(title="Missing Website", message="Website not registered.")
@@ -85,7 +87,7 @@ window.config(padx=50, pady=50)
 
 #Canvas for the picture
 canvas = Canvas(width=200, height=200)
-photo_image = PhotoImage(file="./Python/Bootcamp/day30/JsonPassword/logo.png")
+photo_image = PhotoImage(file=os.path.join(BASE_DIR, "logo.png"))
 canvas.create_image(100,100,image=photo_image)
 canvas.grid(column=1, row=0)
 
