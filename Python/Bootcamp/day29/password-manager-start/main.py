@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import os
+BASE_DIR = os.path.dirname(__file__)
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONT_NAME = "Arial"
@@ -41,7 +43,7 @@ def save_details():
                                     f"Email: {email}\nPassword: {password}\nIs it ok to save?")
         
         if is_ok:
-            with open("./Python/Bootcamp/day29/password-manager-start/password_manager.csv","a") as file:
+            with open(os.path.join(BASE_DIR, "password_manager.csv"), "a") as file:
                 file.write(f"{website} | {email} | {password}\n")
             website_entry.delete(0, END)
             password_entry.delete(0, END)
@@ -54,7 +56,7 @@ window.config(padx=50, pady=50)
 
 #Canvas for the picture
 canvas = Canvas(width=200, height=200)
-photo_image = PhotoImage(file="./Python/Bootcamp/day29/password-manager-start/logo.png")
+photo_image = PhotoImage(file=os.path.join(BASE_DIR, "logo.png"))
 canvas.create_image(100,100,image=photo_image)
 canvas.grid(column=1, row=0)
 

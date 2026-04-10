@@ -1,6 +1,8 @@
 from tkinter import *
 import math
 import time
+import os
+BASE_DIR = os.path.dirname(__file__)
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -76,7 +78,7 @@ window.config(padx=100, pady=50, bg=YELLOW)
 
 #Canvas
 canvas = Canvas(width=210, height=224, bg=YELLOW, highlightthickness=0)
-photo_image = PhotoImage(file="./Python/Bootcamp/day28/pomodoro-start/tomato.png")
+photo_image = PhotoImage(file=os.path.join(BASE_DIR, "tomato.png"))
 canvas.create_image(105,112, image=photo_image)
 timer_text = canvas.create_text(105,130,text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
